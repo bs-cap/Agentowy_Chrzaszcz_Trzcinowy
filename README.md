@@ -19,7 +19,11 @@ In-store performance is still largely driven by static planning and manual execu
 - Personalize product suggestions and offers based on loyalty behavior.
 
 ## Ideas
-Usability based shop management system based on AI Agents. Except standard food store (whatever size it is) stuff system is focused on giving solutions like recipes with list of products which are currently available in the shop. Or advices that i'll warm next few days and there are suitable products in the shop.
+Convenience based shop management system based on AI Agents. Except standard food store (whatever size it is) stuff system is focused on giving solutions like recipes with list of products which are currently available in the shop. Or advices that it'll be warm next few days and there are suitable products in the shop or what to order to have proper supplies.
+
+Roles:
+- General goods management (orders, deliveries, shelving, stock monitoring etc.).
+- Price management (based on sales and stocks)
 
 ## Components
 System is built on:
