@@ -41,3 +41,27 @@ System is built on:
 ### Tool
 - kasa, półka, magazyn, ludzie,
 - Agent Półkowy - wysyła zlecenia uzupełnienia stanu na półce
+
+## Flows
+### Marketing Manager Agent
+Marketing Manager Agent (MMA) reads messages from BUS. If message is sent to it Agent reads it and decides what to do next. There are some possibilities:
+- calling Receipe Advertiser Agent (RAA) to prepare recipe with given product,
+- calling Supply Advisor Agent for future demand ideas,
+- calling other agents if available.
+
+Message for Marketing Manager Agent may contain messages like:
+- there is a slow rotating product,
+- sessony product is sold,
+- product supply advisory required,
+- and so on.
+
+Marketing Manager Agent reads a message and decides what to do next. In the case of slow rotating product flow looks like this:
+- MMA calls RAA with message: prepare recipe with product,
+- RAA starts loop with Recipe Finder Agent and Stock Check Agent,
+- Recepie Finder Agent looks for recipe with products and send it to Stock Check Agent,
+- Stock Check Agent checks for products availability and sends recipe with stock availability to RAA,
+- if all products are available RAA sends recipe to MMA or to BUS directly addressing it to Displays, Mobile App and Website,
+- if not all products are available RAA sends request to Recipe Finder Agent to find recipe with given product and without unavailable products,
+- loop is repeated until success or is interupted if there is no recepie found after i.e. 3 loops,
+- if no recipe is found RAA calls MMA with no recipe message,
+- MAA calls Promotion Agent to prepare advertisement to sell given product.
