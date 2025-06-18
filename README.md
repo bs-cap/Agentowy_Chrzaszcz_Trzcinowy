@@ -26,9 +26,9 @@ Roles:
 - Price management (based on sales and stocks)
 
 ## Solution
-System is build as conglomerate of various items which communicate with others via event loop. Some of items are sending messages only (sensors, cameras, etc.), some receives messages only (displays, robots, etc.) and some receives and sends messages (agencies). The main purpose of such a approach is scalability and flexibility. It is easy to add new senders and receivers. It is especially useful for adding new agencies, for example the second Supply Coordinator agency when one is overwhelmed with tasks or brand new agency for new tasks.
+System is build as a conglomerate of various items which communicate with others via event loop. Some of items are sending messages only (sensors, cameras, etc.), some receives messages only (displays, robots, etc.) and some receives and sends messages (Agencies which are multi-agent autonomous subsystems). The main purpose of such a approach is scalability and flexibility. It is easy to add new senders and receivers. It is especially useful for adding new agencies, for example the second Supply Coordinator agency when one is overwhelmed with tasks or brand new agency for new tasks.
 
-Agency is a multi-agent autonomous subsystem.
+
 
 ## Components
 ![Core system structure](images/core_structure.png)
@@ -50,6 +50,7 @@ Grouped by agencies.
 ### Store Manager
 
 ### Supply Coordinator
+![Supply Coordinator agency structure](images/supply_coordinator.png)
 
 ### Marketing Manager
 ![Marketing Manager agency structure](images/marketing_manager.png)
