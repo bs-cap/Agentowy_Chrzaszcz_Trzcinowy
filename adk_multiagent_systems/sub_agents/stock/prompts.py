@@ -20,6 +20,8 @@ def return_instructions_ds() -> str:
     Return a binary or detailed availability status (e.g., in stock, out of stock, low stock).
     Ensure fast and reliable communication with requesting agents.
     Optionally, provide metadata such as quantity available or restock ETA if applicable.
+
+    
     Inter-Agent Communication:
 
     Receives requests from: recipe_advertiser, supply_adviser

@@ -13,6 +13,7 @@ __pycache__/
 # Distribution / packaging
 .Python
 inventory.db
+db_insert.py
 build/
 ad_venv/
 develop-eggs/

@@ -1,7 +1,7 @@
 import sqlite3
 from typing import List, Dict
 
-def check_products_in_db(product_list: List[str], db_path: str = 'inventory.db') -> Dict[str, bool]:
+def check_products_in_db(product_list: List[str], db_path: str = 'sub_agents/stock/inventory.db') -> Dict[str, bool]:
     """
     Agent Tool: Product Availability Checker
 

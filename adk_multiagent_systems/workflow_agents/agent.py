@@ -5,12 +5,14 @@ import google.cloud.logging
 from dotenv import load_dotenv
 
 from google.adk import Agent
-# from google.adk.agents import SequentialAgent, LoopAgent, ParallelAgent
+from google.adk.agents import SequentialAgent, LoopAgent, ParallelAgent
 # from google.adk.tools.tool_context import ToolContext
 # from google.adk.tools.langchain_tool import LangchainTool  # import
 # from google.adk.tools.crewai_tool import CrewaiTool
 from google.genai import types
 from sub_agents.stock.agent import stock_checker
+from sub_agents.recipe.agent import recipe_advertiser
+
 
 # from langchain_community.tools import WikipediaQueryRun
 # from langchain_community.utilities import WikipediaAPIWrapper
@@ -146,17 +148,26 @@ print(model_name)
 #         file_writer
 #     ],
 # )
+recipe_loop = LoopAgent(
+    name="RecipeLoop",
+    # Agent order is crucial: Critique first, then Refine/Exit
+    sub_agents=[
+        recipe_advertiser,
+        stock_checker,
+    ],
+    max_iterations=3 # Limit loops
+)
 
 root_agent = Agent(
-    name="greeter",
+    name="manager",
     model=model_name,
     description="Marketing manager",
     instruction="""
-    When the user provide list of products to check delegate that task to stock_checker agent.
+    When the user provide some information about recipe delegate that task to 'RecipeLoop' agent.
     """,
     generate_content_config=types.GenerateContentConfig(
         temperature=0,
     ),
     # tools=[append_to_state],
-    sub_agents=[stock_checker],
+    sub_agents=[recipe_loop],
 )
