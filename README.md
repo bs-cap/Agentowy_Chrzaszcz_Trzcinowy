@@ -25,14 +25,40 @@ Roles:
 - General goods management (orders, deliveries, shelving, stock monitoring etc.).
 - Price management (based on sales and stocks)
 
+## Solution
+System is build as conglomerate of various items which communicate with others via event loop. Some of items are sending messages only (sensors, cameras, etc.), some receives messages only (displays, robots, etc.) and some receives and sends messages (agencies). The main purpose of such a approach is scalability and flexibility. It is easy to add new senders and receivers. It is especially useful for adding new agencies, for example the second Supply Coordinator agency when one is overwhelmed with tasks or brand new agency for new tasks.
+
+Agency is a multi-agent autonomous subsystem.
+
 ## Components
-System is built on:
-- network of devices (shelf occupancy counters, shelf labels, cameras with traffic information, cash registers, screens, ...),
-- event queue,
-- network of agents,
-- enduser devices (shop employees, customers, shop robots and so on).
+![Core system structure](images/core_structure.png)
+
+The main components of the Store Management System:
+- Cloud of IoT devices like shelf sensors, cameras with image analysis (counting people), cash registers, traffic counters etc.
+- Main agents (Agency coordinators):
+  - Store Manager - responsible for store management,
+  - Supply Coordinator - responsible for store inventory,
+  - Marketing Manager - responsible for promotions, sales predictions, price management,
+  - Customer Service Manager - responsible for personalized offers, pricing etc.,
+  - Workforce Coordinator - responsible for agent deployment (adding/removing groups of agents if needed).
+- Cloud of marketing devices like shelf labels, displays, mobile app, website, employee handhelds, guide robots, etc.
+- Workforce: employees, agents and robots (shelving, cleaning, guides).
 
 ## Agents
+Grouped by agencies.
+
+### Store Manager
+
+### Supply Coordinator
+
+### Marketing Manager
+![Marketing Manager agency structure](images/marketing_manager.png)
+
+
+### Customer Service Manager
+
+### Workforce Coordinator
+
 ### LLM
 - Recipe Agent - bierze zalegające produkty, szuka przepisów, w których można je wykorzystać, sprawdza czy w sklepie są pozostałe potrzebne produkty, wybiera najlepusze przepisy i wysyła do Agenta Reklamiarza
 - Planner Agent - bierze prognozę pogody od agenta Synoptyka, sprawdza co będzie się dobrze sprzedawało i wysyła listę do agenta Zaopatrzeniowca
