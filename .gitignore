@@ -12,7 +12,9 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+inventory.db
 build/
+ad_venv/
 develop-eggs/
 dist/
 downloads/
