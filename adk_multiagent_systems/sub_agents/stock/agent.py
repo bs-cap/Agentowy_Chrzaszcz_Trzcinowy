@@ -14,8 +14,16 @@ model_name = os.getenv("MODEL")
 
 # Agents
 
-stock_checker = Agent(
-    name="stock_checker",
+stock_checker_v1 = Agent(
+    name="stock_checker_v1",
+    model=model_name,
+    description="Checking if product is in stock",
+    instruction=return_instructions_ds(),
+    tools = [check_products_in_db]
+    )
+
+stock_checker_v2 = Agent(
+    name="stock_checker_v2",
     model=model_name,
     description="Checking if product is in stock",
     instruction=return_instructions_ds(),
