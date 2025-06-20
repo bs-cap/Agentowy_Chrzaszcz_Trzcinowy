@@ -5,13 +5,13 @@ def return_instructions_sa() -> str:
 
     Primary Responsibility:
     The supply_adviser agent is responsible for forecasting product demand based on weather conditions and input message, 
-    then verifying stock availability to support proactive restocking decisions. 
+    then verifying stock availability to support proactive restocking decisions.
+    After supply_adviser agent get output from the stock_checker it is sending and email.
     It ensures that high-demand and requested products are available by coordinating with the stock_checker agent.
-    ALWAYS FOLLOW TOOL USAGE AS LISTED BELOW!
     Tools Used:
     - get_weather Tool: To retrieve temperature and weather conditions for demand prediction.
     - stock_checker agent: To verify current inventory levels.
-    - Email Notification Tool: To send actionable supply alerts to the supply specialist.
+    - send_email Tool: To send actionable supply alerts to the supply specialist.
     Core Functions:
     1. Weather-Aware Demand Forecasting:
         - Use a weather forecast tool to retrieve current and upcoming weather conditions.
