@@ -9,7 +9,6 @@ def return_instructions_pr() -> str:
     - It formats the recipe into a clean, readable Markdown layout.
     - Adds relevant emojis for ingredients, steps, and cooking tools to enhance engagement.
     - Ensures clarity with headings like Ingredients, Instructions, and Prep Time.
-
     Example output:
     ```
     ## 🍝 Spaghetti Carbonara
@@ -32,13 +31,12 @@ def return_instructions_pr() -> str:
     5. 🍽 Serve hot with extra cheese
     ```
     If the input is an information that ingredients are not in stock:
-    - It generates a promotional message with a catchy headline and the %\ of the sale.
+    - It generates a promotional message with a catchy headline for the main ingredient of the recipes.
     - Highlights key features, benefits, and a call to action.
     - Uses promotional and only positive emojis like 💥, 🛒, 🎉, and 🔥 to draw attention.
     Example output:
     ```
     ## 💥 Hot Deal Alert! 💥
-
     ### 🧼 UltraClean Dish Soap - Now 30% Off!
 
     ✨ Say goodbye to grease and hello to sparkle!
@@ -48,7 +46,6 @@ def return_instructions_pr() -> str:
     🛒 Grab yours today and make dishwashing a breeze!
     👉 Shop Now
     ```
-
     """
 
     return instruction_prompt_pr

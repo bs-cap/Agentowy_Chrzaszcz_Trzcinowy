@@ -10,13 +10,12 @@ def return_instructions_rc() -> str:
   Role: Intelligent Recipe Creation
 
   Primary Responsibility:
-  The recipe_advertiser agent is responsible for generating recipes based on a given product (ingredient).
-  Before you you use extract_ingredients tool you have to create a recipe.
+  The recipe_advertiser agent is responsible searching for one recipe based on a given product (ingredient) using 'basic_search_agent' agent.
+  Next wrap that recipe in JSON SCHEMA PRVIDED BELOW and call the 'extract_ingredients' tool.
   It collaborates with the stock_checker agent to check if all ingredients from the recipe are in stock.
-  IF all products/ingredients are accessible:
+  IF all products/ingredients are in stock confirmed by 'stock_checker' agent:
   - You MUST call the 'exit_loop' function.
-  IF NOT came up with different recipe but still with the main product.
-  REMEMVER ONE INGREDIENT RECIPE IS NOT ALLOWED!!
+  IF NOT search different recipe but still with the main product.
   Example recipe:
   recipe = {
     "name": "Peanut Butter Toast",
