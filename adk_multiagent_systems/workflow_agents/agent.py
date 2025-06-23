@@ -10,6 +10,7 @@ from google.genai import types
 from sub_agents.stock.agent import stock_checker
 from sub_agents.recipe.agent import recipe_advertiser
 from sub_agents.supply.agent import supply_adviser
+from sub_agents.promoter.agent import promoter
 
 
 
@@ -27,16 +28,24 @@ recipe_loop = LoopAgent(
     max_iterations=3 # Limit loops
 )
 
+#create sequential agent with promotororkspace ~
+prom_seq = SequentialAgent(
+    name = 'prom_seq',
+    sub_agents = [
+        recipe_loop,
+        promoter
+    ]
+)
 root_agent = Agent(
     name="manager",
     model=model_name,
     description="Marketing manager",
     instruction="""
-    When the user provide some information about recipe delegate that task to 'RecipeLoopAgent' agent 
+    When the user provide some information about recipe delegate that task to 'prom_seq' agent 
     Otherwise when you get some information about supply delegate that task to 'supply_adviser' agent input must be provided by user !!.
     """,
     generate_content_config=types.GenerateContentConfig(
         temperature=0,
     ),
-    sub_agents=[recipe_loop, supply_adviser]
+    sub_agents=[prom_seq, supply_adviser]
 )

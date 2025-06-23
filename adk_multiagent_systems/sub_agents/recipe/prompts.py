@@ -15,8 +15,8 @@ def return_instructions_rc() -> str:
   It collaborates with the stock_checker agent to check if all ingredients from the recipe are in stock.
   IF all products/ingredients are accessible:
   - You MUST call the 'exit_loop' function.
-  - Display well formated recipe with emojis.
-  IF NOT came up with different recipe try again by creating new one.
+  IF NOT came up with different recipe but still with the main product.
+  REMEMVER ONE INGREDIENT RECIPE IS NOT ALLOWED!!
   Example recipe:
   recipe = {
     "name": "Peanut Butter Toast",
@@ -34,7 +34,7 @@ def return_instructions_rc() -> str:
     "prep_time": "5 minutes",
     "cook_time": "5 minutes",
     "servings": 1
-}
+  }
   """
 
   return instruction_prompt_rc
