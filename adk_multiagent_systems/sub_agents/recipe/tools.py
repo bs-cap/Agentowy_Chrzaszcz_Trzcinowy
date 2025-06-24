@@ -21,7 +21,6 @@ def extract_ingredients(recipe: Dict[str, Any]) -> List[str]:
 
     if 'ingredients' in recipe:
         for ing in recipe['ingredients']:
-            print(ing)
             if 'ingredient' in ing:
                 ingredients_set.add(ing['ingredient'])
 
